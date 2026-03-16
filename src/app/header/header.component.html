@@ -1,0 +1,15 @@
+<header class="bg-primary text-white p-4 text-center">
+  <h1>Welcome to My Portfolio</h1>
+  
+  <p>Hello, {{ studentName }}!</p>
+
+  <div class="m-3">
+    <img [src]="imgSource" alt="My Photo" class="rounded-circle border" width="140">
+  </div>
+
+  <button class="btn btn-light" [disabled]="isDisabled" (click)="onButtonClick($event)" value="Done">
+    Click Me
+  </button>
+  
+  <p class="mt-2">{{ message }}</p>
+</header>
