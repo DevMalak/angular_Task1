@@ -1,0 +1,74 @@
+<div class="bg-success p-3 text-white mb-3">
+  <h4>Task 1: Login Status</h4>
+</div>
+
+<div class="alert alert-success" *ngIf="isLoggedIn; else warning">
+  <h2>Welcome back, Malak!</h2>
+</div>
+
+<ng-template #warning>
+  <div class="alert alert-danger">
+    <h2>Please log in.</h2>
+  </div>
+</ng-template>
+
+<button class="btn btn-primary" (click)="isLoggedIn = !isLoggedIn">
+  Toggle Login
+</button>
+
+<h4 *ngFor="let skill of skills">{{ skill }}</h4>
+
+
+<div class="mt-4 p-3 bg-light border rounded">
+  <h4 class="mb-3 text-dark">Task 3: User Role Status</h4>
+
+  <div [ngSwitch]="role">
+    <div *ngSwitchCase="'Admin'" class="alert alert-primary">
+      Welcome, Administrator!
+    </div>
+
+    <div *ngSwitchCase="'Editor'" class="alert alert-warning">
+      Welcome, Editor!
+    </div>
+
+    <div *ngSwitchCase="'Viewer'" class="alert alert-info">
+      Welcome, Viewer!
+    </div>
+
+    <div *ngSwitchDefault class="alert alert-secondary">
+      Guest User
+    </div>
+  </div>
+</div>
+
+<div class="mt-4 p-3 border rounded bg-light">
+  <h4>Task 4: All Binding Types</h4>
+
+  <p>Welcome, {{ userName }}!</p>
+  <img [src]="imageSrc" width="200" class="mb-2 rounded shadow-sm" alt="Nature">
+  <input [value]="userName" class="form-control mb-2" style="width: 200px;">
+
+  <div class="mb-3">
+    <button class="btn btn-secondary" [attr.disabled]="isBtnDisabled ? true : null">
+      Attribute Bound Button
+    </button>
+  </div>
+
+  <button class="btn btn-primary" (click)="isBtnDisabled = !isBtnDisabled">
+    Enable/Disable Button
+  </button>
+</div>
+
+
+<div class="mt-4 p-3 border rounded bg-white">
+  <h4>Task 5: Two-Way Data Binding</h4>
+
+  <div class="mb-3">
+    <label class="form-label">Type something:</label>
+    <input [(ngModel)]="userMessage" class="form-control" placeholder="Write here...">
+  </div>
+
+  <p class="alert alert-info">
+    You are typing: {{ userMessage }}
+  </p>
+</div>
